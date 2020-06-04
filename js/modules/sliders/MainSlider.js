@@ -7,12 +7,14 @@ export default class MainSlider extends Slider {
         this.sliderLength = this.pageBlocks.length - 1;
     }
 
-    hideSlide() {
-        this.pageBlocks[this.currentSlide].style.display = "none";
+    hideSlide(currentSlide = this.currentSlide) {
+        this.currentSlide = currentSlide;
+        this.pageBlocks[currentSlide].style.display = "none";
     }
 
-    showSlide() {
-        this.pageBlocks[this.currentSlide].style.display = "block";
+    showSlide(currentSlide = this.currentSlide) {
+        this.currentSlide = currentSlide;
+        this.pageBlocks[currentSlide].style.display = "block";
     }
 
     nextSlide() {
@@ -26,7 +28,7 @@ export default class MainSlider extends Slider {
     }
 
     bindSlider() {
-        this.showSlide();
+        this.showSlide(0);
         this.nextButton.forEach((item) => {
             item.addEventListener("click", () => {
                     this.nextSlide();
