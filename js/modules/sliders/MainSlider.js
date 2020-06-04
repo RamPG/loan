@@ -1,12 +1,11 @@
 import Slider from "./Slider";
 
 export default class MainSlider extends Slider {
-    constructor(page, nextButtonSelector) {
-        super(page, nextButtonSelector);
+    constructor(pageSelector, nextButtonSelector) {
+        super(pageSelector, nextButtonSelector);
         this.currentSlide = 0;
         this.sliderLength = this.pageBlocks.length - 1;
     }
-
     hideSlide(currentSlide = this.currentSlide) {
         this.currentSlide = currentSlide;
         this.pageBlocks[currentSlide].style.display = "none";
@@ -30,10 +29,7 @@ export default class MainSlider extends Slider {
     bindSlider() {
         this.showSlide(0);
         this.nextButton.forEach((item) => {
-            item.addEventListener("click", () => {
-                    this.nextSlide();
-                }
-            )
+            item.addEventListener("click", () => this.nextSlide())
         });
     }
 }
