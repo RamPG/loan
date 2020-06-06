@@ -1,11 +1,18 @@
 import Slider from "./Slider";
 
 export default class MainSlider extends Slider {
-    constructor(pageSelector, nextButtonSelector) {
-        super(pageSelector, nextButtonSelector);
+    constructor({
+                    pageSelector = null,
+                    nextButtonSelector = null
+                }) {
+        super({
+            pageSelector: pageSelector,
+            nextButtonSelector: nextButtonSelector
+        });
         this.currentSlide = 0;
         this.sliderLength = this.pageBlocks.length - 1;
     }
+
     hideSlide(currentSlide = this.currentSlide) {
         this.currentSlide = currentSlide;
         this.pageBlocks[currentSlide].style.display = "none";

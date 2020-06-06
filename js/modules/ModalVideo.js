@@ -1,8 +1,18 @@
 import Modal from "./Modal";
 
 export default class ModalVideo extends Modal {
-    constructor(pageSelector, triggerSelector, modalSelector, closeSelector) {
-        super(pageSelector, triggerSelector, modalSelector, closeSelector);
+    constructor({
+                    pageSelector = null,
+                    triggerSelector = null,
+                    modalSelector = null,
+                    closeSelector = null
+                }) {
+        super({
+            pageSelector: pageSelector,
+            triggerSelector: triggerSelector,
+            modalSelector: modalSelector,
+            closeSelector: closeSelector
+        });
 
     }
 

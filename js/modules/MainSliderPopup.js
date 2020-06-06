@@ -1,8 +1,15 @@
-import Slider from "./sliders/Slider";
+import MainSlider from "./sliders/MainSlider";
 
-export default class MainSliderPopup extends Slider {
-    constructor(pageSelector, nextButtonSelector, popupSelector) {
-        super(pageSelector, nextButtonSelector);
+export default class MainSliderPopup extends MainSlider {
+    constructor({
+                    pageSelector = null,
+                    nextButtonSelector = null,
+                    popupSelector = null
+                }) {
+        super({
+            pageSelector: pageSelector,
+            nextButtonSelector: nextButtonSelector
+        });
         this.popup = this.page.querySelector(popupSelector);
         this.timeoutID = undefined;
     }
