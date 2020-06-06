@@ -29,7 +29,7 @@ export default class MainSlider extends Slider {
     bindSlider() {
         this.showSlide(0);
         this.nextButton.forEach((item) => {
-            item.addEventListener("click", () => this.nextSlide())
+            item.addEventListener("click", this.nextSlide.bind(this))
         });
     }
 }
