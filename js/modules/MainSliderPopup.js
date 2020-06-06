@@ -19,14 +19,14 @@ export default class MainSliderPopup extends Slider {
         this.timeoutID = setTimeout(this.openPopup.bind(this), 3000);
     }
 
-    setTimerOnPopup() {
+    bindPopup() {
         this.nextButton.forEach((item) => {
             item.addEventListener("click", () => {
                     if (this.pageBlocks[2].style.display === "block") {
                         this.setTimer()
                     } else {
                         clearTimeout(this.timeoutID);
-                        this.closePopup(); // Не работает при первом открытии слайда
+                        this.closePopup();
                     }
                 }
             )

@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const slider = new MainSlider(".page", ".next");
     const sliderPopup = new MainSliderPopup(".page", ".next", ".hanson");
     slider.bindSlider();
-    sliderPopup.setTimerOnPopup();
+    sliderPopup.bindPopup();
     const modalVideo = new ModalVideo(".page", ".play", ".overlay", ".close");
     modalVideo.addModal();
     modalVideo.initAPI();

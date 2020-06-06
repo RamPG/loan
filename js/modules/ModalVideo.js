@@ -10,16 +10,19 @@ export default class ModalVideo extends Modal {
         this.player = new YT.Player('frame', {
                 height: '100%',
                 width: '100%',
-                videoId: this.trigger.getAttribute("data-url")
+                videoId: this.trigger.getAttribute("data-url"),
             }
         );
     }
 
     bindPlay() {
         this.trigger.addEventListener("click", () => {
-            this.createPlayer();
+            if (!this.player) {
+                this.createPlayer();
+            }
         })
     }
+
     bindStop() {
         this.close.addEventListener("click", () => {
             this.player.stopVideo();
@@ -32,9 +35,6 @@ export default class ModalVideo extends Modal {
         tag.src = "https://www.youtube.com/iframe_api";
         const firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        this.trigger.addEventListener("click", () => {
-            this.createPlayer("vZ4Sne0wdxY");
-        });
         this.bindPlay();
         this.bindStop();
     }
