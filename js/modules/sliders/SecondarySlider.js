@@ -34,7 +34,7 @@ export default class SecondarySlider extends Slider {
         this.prevButton.addEventListener("click", this.prevSlide.bind(this));
     }
 
-    changeSlide() {
+    changeSlidesByTime() {
         setInterval(this.nextSlide.bind(this), 5000);
     }
 }

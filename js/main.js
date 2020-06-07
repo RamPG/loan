@@ -2,6 +2,7 @@ import MainSlider from "./modules/sliders/MainSlider";
 import MainSliderPopup from "./modules/MainSliderPopup";
 import ModalVideo from "./modules/ModalVideo";
 import SecondarySlider from "./modules/sliders/SecondarySlider";
+import Difference from "./modules/Difference";
 
 window.addEventListener("DOMContentLoaded", () => {
     const slider = new MainSlider({
@@ -46,7 +47,20 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     showUpSlider.bindSlider();
     modulesSlider.bindSlider();
-    feedSlider.changeSlide()
+    feedSlider.changeSlidesByTime();
+    const differenceOld = new Difference({
+        officerSelector: ".officerold",
+        differenceCardSelector: ".officer__card-item",
+        showSelector: ".add-item"
+    })
+    differenceOld.officerBind();
+    const differenceNew = new Difference({
+        officerSelector: ".officernew",
+        differenceCardSelector: ".officer__card-item",
+        showSelector: ".add-item"
+    })
+    differenceNew.officerBind();
+
 
 
 });
