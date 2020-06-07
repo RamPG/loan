@@ -2,25 +2,31 @@ import Slider from "./Slider";
 
 export default class MainSlider extends Slider {
     constructor({
-                    pageSelector = null,
-                    nextButtonSelector = null
+                    containerSelector = null,
+                    nextButtonSelector = null,
+                    slidesSelector = null,
+                    activeClass = null
+
                 }) {
         super({
-            pageSelector: pageSelector,
-            nextButtonSelector: nextButtonSelector
+            containerSelector: containerSelector,
+            nextButtonSelector: nextButtonSelector,
+            slidesSelector: slidesSelector,
+            activeClass: activeClass
         });
-        this.currentSlide = 0;
-        this.sliderLength = this.pageBlocks.length - 1;
+        this.nextButton = document.querySelectorAll(nextButtonSelector);
     }
 
     hideSlide(currentSlide = this.currentSlide) {
         this.currentSlide = currentSlide;
-        this.pageBlocks[currentSlide].style.display = "none";
+        this.slides[currentSlide].style.display = "none";
+        this.slides[currentSlide].classList.remove(this.activeClass);
     }
 
     showSlide(currentSlide = this.currentSlide) {
         this.currentSlide = currentSlide;
-        this.pageBlocks[currentSlide].style.display = "block";
+        this.slides[currentSlide].style.display = "block";
+        this.slides[currentSlide].classList.add(this.activeClass);
     }
 
     nextSlide() {
@@ -37,6 +43,17 @@ export default class MainSlider extends Slider {
         this.showSlide(0);
         this.nextButton.forEach((item) => {
             item.addEventListener("click", this.nextSlide.bind(this))
+        });
+    }
+
+    logoBind(triggerSelector) {
+        const trigger = document.querySelectorAll(triggerSelector);
+        trigger.forEach((item) => {
+            item.addEventListener("click", () => {
+                this.setDisplayNone();
+                this.showSlide(0);
+                this.currentSlide = 0;
+            })
         });
     }
 }

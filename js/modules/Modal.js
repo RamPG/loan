@@ -1,14 +1,9 @@
-import Page from "./Page";
-
-export default class Modal extends Page {
+export default class Modal {
     constructor({
-                    pageSelector = null,
                     triggerSelector = null,
                     modalSelector = null,
                     closeSelector = null
                 }) {
-        super({pageSelector: pageSelector});
-        this.page = document.querySelector(pageSelector);
         this.trigger = document.querySelector(triggerSelector);
         this.modal = document.querySelector(modalSelector);
         this.close = document.querySelector(closeSelector);

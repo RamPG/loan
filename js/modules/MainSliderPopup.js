@@ -2,15 +2,15 @@ import MainSlider from "./sliders/MainSlider";
 
 export default class MainSliderPopup extends MainSlider {
     constructor({
-                    pageSelector = null,
+                    containerSelector = null,
                     nextButtonSelector = null,
                     popupSelector = null
                 }) {
         super({
-            pageSelector: pageSelector,
+            containerSelector: containerSelector,
             nextButtonSelector: nextButtonSelector
         });
-        this.popup = this.page.querySelector(popupSelector);
+        this.popup = document.querySelector(popupSelector);
         this.timeoutID = undefined;
     }
 
@@ -29,7 +29,7 @@ export default class MainSliderPopup extends MainSlider {
     bindPopup() {
         this.nextButton.forEach((item) => {
             item.addEventListener("click", () => {
-                    if (this.pageBlocks[2].style.display === "block") {
+                    if (this.slides[2].style.display === "block") {
                         this.setTimer()
                     } else {
                         clearTimeout(this.timeoutID);
