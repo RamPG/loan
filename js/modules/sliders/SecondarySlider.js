@@ -18,9 +18,13 @@ export default class SecondarySlider extends Slider {
     }
 
     nextSlide() {
-        this.slidesContainer.appendChild(this.slides[0]);
-        this.slides[0].classList.add(this.activeClass);
-        this.slides[this.sliderLength].classList.remove(this.activeClass);
+        try {
+            this.slidesContainer.appendChild(this.slides[0]);
+            this.slides[0].classList.add(this.activeClass);
+            this.slides[this.sliderLength].classList.remove(this.activeClass);
+        } catch (e) {
+        }
+
     }
 
     prevSlide() {
@@ -30,8 +34,11 @@ export default class SecondarySlider extends Slider {
     }
 
     bindSlider() {
-        this.nextButton.addEventListener("click", this.nextSlide.bind(this));
-        this.prevButton.addEventListener("click", this.prevSlide.bind(this));
+        try {
+            this.nextButton.addEventListener("click", this.nextSlide.bind(this));
+            this.prevButton.addEventListener("click", this.prevSlide.bind(this));
+        } catch (e) {
+        }
     }
 
     changeSlidesByTime() {

@@ -62,11 +62,13 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     differenceNew.officerBind();
     const joinForm = new Form({
-        formSelector: ".join__evolution > .form"
+        formSelector: ".join__evolution > .form",
+        path: "../assets/question.php"
     });
     joinForm.bindForm();
     const scheduleForm = new Form({
-        formSelector: ".schedule__form > .form"
+        formSelector: ".schedule__form > .form",
+        path: "../assets/question.php"
     })
     scheduleForm.bindForm();
 

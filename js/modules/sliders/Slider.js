@@ -10,10 +10,10 @@ export default class Slider {
         this.slidesContainer = document.querySelector(containerSelector);
         try {this.nextButton = this.pageBlock.querySelector(nextButtonSelector);} catch (e) {}
         try {this.prevButton = this.pageBlock.querySelector(prevButtonSelector);} catch (e) {}
-        this.slides = this.slidesContainer.children;
+        try {this.slides = this.slidesContainer.children;} catch (e) {}
         this.activeClass = activeClass;
         this.currentSlide = 0;
-        this.sliderLength = this.slides.length - 1;
+        try {this.sliderLength = this.slides.length - 1;} catch (e) {}
     }
 
     setDisplayNone() {

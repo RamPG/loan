@@ -18,15 +18,22 @@ export default class MainSlider extends Slider {
     }
 
     hideSlide(currentSlide = this.currentSlide) {
-        this.currentSlide = currentSlide;
-        this.slides[currentSlide].style.display = "none";
-        this.slides[currentSlide].classList.remove(this.activeClass);
+        try {
+            this.currentSlide = currentSlide;
+            this.slides[currentSlide].style.display = "none";
+            this.slides[currentSlide].classList.remove(this.activeClass);
+        } catch (e) {
+        }
+
     }
 
     showSlide(currentSlide = this.currentSlide) {
-        this.currentSlide = currentSlide;
-        this.slides[currentSlide].style.display = "block";
-        this.slides[currentSlide].classList.add(this.activeClass);
+        try {
+            this.currentSlide = currentSlide;
+            this.slides[currentSlide].style.display = "block";
+            this.slides[currentSlide].classList.add(this.activeClass);
+        } catch (e) {
+        }
     }
 
     nextSlide() {
@@ -40,10 +47,14 @@ export default class MainSlider extends Slider {
     }
 
     bindSlider() {
-        this.showSlide(0);
-        this.nextButton.forEach((item) => {
-            item.addEventListener("click", this.nextSlide.bind(this))
-        });
+        try {
+            this.showSlide(0);
+            this.nextButton.forEach((item) => {
+                item.addEventListener("click", this.nextSlide.bind(this))
+            });
+        } catch (e) {
+        }
+
     }
 
     logoBind(triggerSelector) {
