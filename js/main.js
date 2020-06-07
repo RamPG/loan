@@ -3,6 +3,7 @@ import MainSliderPopup from "./modules/MainSliderPopup";
 import ModalVideo from "./modules/ModalVideo";
 import SecondarySlider from "./modules/sliders/SecondarySlider";
 import Difference from "./modules/Difference";
+import Form from "./modules/Form";
 
 window.addEventListener("DOMContentLoaded", () => {
     const slider = new MainSlider({
@@ -60,7 +61,13 @@ window.addEventListener("DOMContentLoaded", () => {
         showSelector: ".add-item"
     })
     differenceNew.officerBind();
-
-
+    const joinForm = new Form({
+        formSelector: ".join__evolution > .form"
+    });
+    joinForm.bindForm();
+    const scheduleForm = new Form({
+        formSelector: ".schedule__form > .form"
+    })
+    scheduleForm.bindForm();
 
 });
