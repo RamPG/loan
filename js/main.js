@@ -6,20 +6,19 @@ import Difference from "./modules/Difference";
 import Form from "./modules/Form";
 
 window.addEventListener("DOMContentLoaded", () => {
-    const slider = new MainSlider({
-
+    const sliderIndexMain = new MainSlider({
         containerSelector: ".page",
         nextButtonSelector: ".next",
         activeClass: "active"
     });
-    const sliderPopup = new MainSliderPopup({
+    const sliderIndexMainPopup = new MainSliderPopup({
         containerSelector: ".page",
         nextButtonSelector: ".next",
         popupSelector: ".hanson"
     });
-    slider.bindSlider();
-    slider.logoBind(".main-logo");
-    sliderPopup.bindPopup();
+    sliderIndexMain.bindSlider();
+    sliderIndexMain.logoBind(".main-logo");
+    sliderIndexMainPopup.bindPopup();
     const modalVideo = new ModalVideo({
         triggerSelector: ".play",
         modalSelector: ".overlay",
@@ -27,28 +26,28 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     modalVideo.addModal();
     modalVideo.initAPI();
-    const showUpSlider = new SecondarySlider({
+    const showUpSliderSecondary = new SecondarySlider({
         pageBlockSelector: ".showup",
         containerSelector: ".showup__content-slider",
         prevButtonSelector: ".showup__prev",
         nextButtonSelector: ".showup__next",
         activeClass: "card-active",
     })
-    const modulesSlider = new SecondarySlider({
+    const modulesSliderSecondary = new SecondarySlider({
         pageBlockSelector: ".modules",
         containerSelector: ".modules__content-slider",
         prevButtonSelector: ".slick-prev",
         nextButtonSelector: ".slick-next",
         activeClass: "card-active"
     })
-    const feedSlider = new SecondarySlider({
+    const feedSliderSecondary = new SecondarySlider({
         pageBlockSelector: ".feed",
         containerSelector: ".feed__slider",
         activeClass: "feed__item-active"
     })
-    showUpSlider.bindSlider();
-    modulesSlider.bindSlider();
-    feedSlider.changeSlidesByTime();
+    showUpSliderSecondary.bindSlider();
+    modulesSliderSecondary.bindSlider();
+    feedSliderSecondary.changeSlidesByTime();
     const differenceOld = new Difference({
         officerSelector: ".officerold",
         differenceCardSelector: ".officer__card-item",
@@ -71,5 +70,12 @@ window.addEventListener("DOMContentLoaded", () => {
         path: "../assets/question.php"
     })
     scheduleForm.bindForm();
-
+    const moduleSliderMain = new MainSlider({
+        containerSelector: ".moduleapp",
+        nextButtonSelector: ".next",
+        prevButtonSelector: ".prev",
+        activeClass: "active"
+    })
+    moduleSliderMain.bindSlider();
+    moduleSliderMain.logoBind(".main-logo");
 });

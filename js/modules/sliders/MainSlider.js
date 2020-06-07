@@ -4,6 +4,7 @@ export default class MainSlider extends Slider {
     constructor({
                     containerSelector = null,
                     nextButtonSelector = null,
+                    prevButtonSelector = null,
                     slidesSelector = null,
                     activeClass = null
 
@@ -11,10 +12,20 @@ export default class MainSlider extends Slider {
         super({
             containerSelector: containerSelector,
             nextButtonSelector: nextButtonSelector,
+            prevButtonSelector: prevButtonSelector,
             slidesSelector: slidesSelector,
             activeClass: activeClass
         });
-        this.nextButton = document.querySelectorAll(nextButtonSelector);
+        try {
+            this.nextButton = document.querySelectorAll(nextButtonSelector);
+        } catch (e) {
+
+        }
+        try {
+            this.prevButton = document.querySelectorAll(prevButtonSelector);
+        } catch (e) {
+
+        }
     }
 
     hideSlide(currentSlide = this.currentSlide) {
@@ -46,12 +57,28 @@ export default class MainSlider extends Slider {
         this.showSlide();
     }
 
+    prevSlide() {
+        this.hideSlide();
+        if (this.currentSlide === 0) {
+            this.currentSlide = this.sliderLength;
+        } else {
+            this.currentSlide--;
+        }
+        this.showSlide();
+    }
+
     bindSlider() {
+        this.showSlide(0);
         try {
-            this.showSlide(0);
             this.nextButton.forEach((item) => {
                 item.addEventListener("click", this.nextSlide.bind(this))
             });
+        } catch (e) {
+        }
+        try {
+            this.prevButton.forEach((item) => {
+                item.addEventListener("click", this.prevSlide.bind(this));
+            })
         } catch (e) {
         }
 

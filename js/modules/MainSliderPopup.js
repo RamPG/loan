@@ -29,12 +29,16 @@ export default class MainSliderPopup extends MainSlider {
     bindPopup() {
         this.nextButton.forEach((item) => {
             item.addEventListener("click", () => {
-                    if (this.slides[2].style.display === "block") {
-                        this.setTimer()
-                    } else {
-                        clearTimeout(this.timeoutID);
-                        this.closePopup();
+                    try {
+                        if (this.slides[2].style.display === "block") {
+                            this.setTimer()
+                        } else {
+                            clearTimeout(this.timeoutID);
+                            this.closePopup();
+                        }
+                    } catch (e) {
                     }
+
                 }
             )
         });
