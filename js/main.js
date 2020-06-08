@@ -4,6 +4,7 @@ import ModalVideo from "./modules/ModalVideo";
 import SecondarySlider from "./modules/sliders/SecondarySlider";
 import Difference from "./modules/Difference";
 import Form from "./modules/Form";
+import Accordion from "./modules/Accordion";
 
 window.addEventListener("DOMContentLoaded", () => {
     const sliderIndexMain = new MainSlider({
@@ -78,4 +79,10 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     moduleSliderMain.bindSlider();
     moduleSliderMain.logoBind(".main-logo");
+    const accordion = new Accordion({
+        accordionHeadersSelector: ".module__info-show",
+        accordionBlocksSelector: ".msg",
+        toggleClass: "msg"
+    })
+    accordion.bindAccordion();
 });
