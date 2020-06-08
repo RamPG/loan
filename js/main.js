@@ -5,6 +5,7 @@ import SecondarySlider from "./modules/sliders/SecondarySlider";
 import Difference from "./modules/Difference";
 import Form from "./modules/Form";
 import Accordion from "./modules/Accordion";
+import Download from "./modules/Download";
 
 window.addEventListener("DOMContentLoaded", () => {
     const sliderIndexMain = new MainSlider({
@@ -85,4 +86,9 @@ window.addEventListener("DOMContentLoaded", () => {
         toggleClass: "msg"
     })
     accordion.bindAccordion();
+    const download = new Download({
+        filePath: "assets/img/mainbg.jpg",
+        triggerSelector: ".download"
+    })
+    download.bindDownload();
 });
