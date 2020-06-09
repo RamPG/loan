@@ -7,7 +7,7 @@ export default class Modal {
         this.trigger = document.querySelector(triggerSelector);
         this.modal = document.querySelector(modalSelector);
         this.close = document.querySelector(closeSelector);
-    }
+    }   
 
     bindTrigger() {
         this.trigger.addEventListener("click", () => {

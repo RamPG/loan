@@ -91,4 +91,13 @@ window.addEventListener("DOMContentLoaded", () => {
         triggerSelector: ".download"
     })
     download.bindDownload();
+    const moduleVideo = new ModalVideo({
+        triggerSelector: ".play",
+        modalSelector: ".overlay",
+        closeSelector: ".close",
+        blockSelector: ".module__video-item"
+    })
+    moduleVideo.addModal();
+    moduleVideo.initAPI();
+
 });
